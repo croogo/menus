@@ -2,7 +2,8 @@
 
 namespace Croogo\Menus\Controller;
 
-use App\Controller\AppController;
+use Croogo\Core\Controller\Controller as CroogoController;
+
 /**
  * Users Application controller
  *
@@ -13,6 +14,6 @@ use App\Controller\AppController;
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
-class MenusAppController extends AppController {
+class MenusAppController extends CroogoController {
 
 }
