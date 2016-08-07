@@ -1,22 +1,12 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CroogoMenusInitialMigration extends AbstractMigration
+class MenusInitialMigration extends AbstractMigration
 {
-
-    public $autoId = false;
-
     public function up()
     {
-        $table = $this->table('links');
-        $table
-            ->addColumn('id', 'integer', [
-                'autoIncrement' => true,
-                'default' => null,
-                'limit' => 20,
-                'null' => false,
-            ])
-            ->addPrimaryKey(['id'])
+
+        $this->table('links')
             ->addColumn('parent_id', 'integer', [
                 'default' => null,
                 'limit' => 20,
@@ -114,15 +104,7 @@ class CroogoMenusInitialMigration extends AbstractMigration
             ])
             ->create();
 
-        $table = $this->table('menus');
-        $table
-            ->addColumn('id', 'integer', [
-                'autoIncrement' => true,
-                'default' => null,
-                'limit' => 10,
-                'null' => false,
-            ])
-            ->addPrimaryKey(['id'])
+        $this->table('menus')
             ->addColumn('title', 'string', [
                 'default' => null,
                 'limit' => 255,
@@ -136,7 +118,7 @@ class CroogoMenusInitialMigration extends AbstractMigration
             ->addColumn('class', 'string', [
                 'default' => null,
                 'limit' => 255,
-                'null' => true,
+                'null' => false,
             ])
             ->addColumn('description', 'text', [
                 'default' => null,
@@ -200,7 +182,6 @@ class CroogoMenusInitialMigration extends AbstractMigration
                 ['unique' => true]
             )
             ->create();
-
     }
 
     public function down()
